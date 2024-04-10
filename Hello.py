@@ -26,7 +26,12 @@ def run():
     st.write("# Predict Labor Count")
 
     laborForm = st.form('laborForm')
-
+    store_lst=[]
+    for i in range(40):
+        store_lst.append("FIPL "+str(i+1))
+    
+    store_name = laborForm.selectbox('Select the store', store_lst) 
+    
     day_name = laborForm.selectbox('Enter the day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
 
     dept = laborForm.selectbox('Enter department', ['Employee', 'Supervisor', 'Manager'])
@@ -36,6 +41,6 @@ def run():
     shift_time = laborForm.selectbox('Enter the shift', ['Morning Shift (10 AM - 12 PM)', 'Afternoon Shift (12 PM - 3 PM)', 'Evening Shift (3 PM - 6 PM)'])
 
     submit = laborForm.form_submit_button(f'Predict')
-    
+
 if __name__ == "__main__":
     run()

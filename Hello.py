@@ -20,32 +20,22 @@ LOGGER = get_logger(__name__)
 
 def run():
     st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
+        page_title="Labor Count",
     )
 
-    st.write("# Welcome to Streamlit! 👋")
+    st.write("# Predict Labor Count")
 
-    st.sidebar.success("Select a demo above.")
+    laborForm = st.form('laborForm')
 
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
+    day_name = laborForm.selectbox('Enter the day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
 
+    dept = laborForm.selectbox('Enter department', ['Employee', 'Supervisor', 'Manager'])
+    
+    age_group = laborForm.selectbox('Enter the combination of gender and age group', ['Female (23-50)', 'Female (50-65)', 'Male (23-50)', 'Male (50-65)'])
+    
+    shift_time = laborForm.selectbox('Enter the shift', ['Morning Shift (10 AM - 12 PM)', 'Afternoon Shift (12 PM - 3 PM)', 'Evening Shift (3 PM - 6 PM)'])
 
+    submit = laborForm.form_submit_button(f'Predict')
+    
 if __name__ == "__main__":
     run()

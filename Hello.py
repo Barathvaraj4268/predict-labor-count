@@ -30,7 +30,6 @@ def run():
     
     df=pd.read_csv("/workspaces/predict-labor-count/predicted_values_df.csv")
 
-
     laborForm = st.form('laborForm')
 
     store_name = laborForm.selectbox('Select store:', df['Store Name'].unique())

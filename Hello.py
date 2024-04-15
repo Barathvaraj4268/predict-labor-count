@@ -32,58 +32,58 @@ def run():
 
     store_name = laborForm.selectbox('Select store:', df['Store Name'].unique())
         
-    day_name = laborForm.selectbox('Enter the day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+    day_name = laborForm.selectbox('Enter the day', df['Day_Name'].unique())
 
-    dept = laborForm.selectbox('Enter department', ['Employee', 'Supervisor', 'Manager'])
+    dept = laborForm.selectbox('Enter department', df['Department'].unique())
     
-    age_group = laborForm.selectbox('Enter the combination of gender and age group', ['Female (23-50)', 'Female (50-65)', 'Male (23-50)', 'Male (50-65)'])
+    age_group = laborForm.selectbox('Enter the combination of gender and age group', df['Age_Group'].unique())
     
-    shift_time = laborForm.selectbox('Enter the shift', ['Morning Shift (10 AM - 12 PM)', 'Afternoon Shift (12 PM - 3 PM)', 'Evening Shift (3 PM - 6 PM)'])
+    shift_time = laborForm.selectbox('Enter the shift', df['customer_time'].unique())
     
     submit = laborForm.form_submit_button(f'Predict')
     
     if submit:
-        #Department
-        if dept=="Employee":
-            dept=0
-        elif dept=="Manager":
-            dept=1
-        elif dept=="Supervisor":
-            dept=2
+        # #Department
+        # if dept=="Employee":
+        #     dept=0
+        # elif dept=="Manager":
+        #     dept=1
+        # elif dept=="Supervisor":
+        #     dept=2
         
-        #customer_time
-        if shift_time=="Afternoon Shift (12 PM - 3 PM)":
-            shift_time=0
-        elif shift_time=="Evening Shift (3 PM - 6 PM)":
-            shift_time=1
-        elif shift_time=="Morning Shift (10 AM - 12 PM)":
-            shift_time=2
+        # #customer_time
+        # if shift_time=="Afternoon Shift (12 PM - 3 PM)":
+        #     shift_time=0
+        # elif shift_time=="Evening Shift (3 PM - 6 PM)":
+        #     shift_time=1
+        # elif shift_time=="Morning Shift (10 AM - 12 PM)":
+        #     shift_time=2
         
-        #Age_Group
-        if age_group=="Female (23-50)":
-            age_group=0
-        elif age_group=="Female (50-65)":
-            age_group=1
-        elif age_group=="Male (23-50)":
-            age_group=2
-        elif age_group=="Male (50-65)":
-            age_group=3
+        # #Age_Group
+        # if age_group=="Female (23-50)":
+        #     age_group=0
+        # elif age_group=="Female (50-65)":
+        #     age_group=1
+        # elif age_group=="Male (23-50)":
+        #     age_group=2
+        # elif age_group=="Male (50-65)":
+        #     age_group=3
         
-        #Day_Name
-        if day_name=="Friday":
-            day_name=0
-        elif day_name=="Monday":
-            day_name=1
-        elif day_name=="Saturday":
-            day_name=2
-        elif day_name=="Sunday":
-            day_name=3
-        elif day_name=="Thursday":
-            day_name=4
-        elif day_name=="Tuesday":
-            day_name=5
-        elif day_name=="Wednesday":
-            day_name=6
+        # #Day_Name
+        # if day_name=="Friday":
+        #     day_name=0
+        # elif day_name=="Monday":
+        #     day_name=1
+        # elif day_name=="Saturday":
+        #     day_name=2
+        # elif day_name=="Sunday":
+        #     day_name=3
+        # elif day_name=="Thursday":
+        #     day_name=4
+        # elif day_name=="Tuesday":
+        #     day_name=5
+        # elif day_name=="Wednesday":
+        #     day_name=6
     
         filtered_table=df.loc[(df['Store Name']==store_name) & (df['Day_Name']==day_name)& (df['Department']==dept)& (df['Age_Group']==age_group)& (df['customer_time']==shift_time)]
     

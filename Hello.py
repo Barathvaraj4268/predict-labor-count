@@ -18,8 +18,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-LOGGER = get_logger(__name__)
-
 
 def run():
     st.set_page_config(
@@ -28,7 +26,7 @@ def run():
 
     st.write("# Predict Labor Count")
     
-    df=pd.read_csv("/workspaces/predict-labor-count/predicted_values_df.csv")
+    df=pd.read_csv("predicted_values_df.csv")
 
     laborForm = st.form('laborForm')
 

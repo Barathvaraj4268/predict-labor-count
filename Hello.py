@@ -102,13 +102,22 @@ def run():
 
         df_plot = pd.DataFrame(data)
 
-        
-        plt.figure(figsize=(10, 6))
-        sns.barplot(data=df_plot, x='Category', y='Value')
-        plt.legend()
-        st.write(filtered_table[['Count of employees across each condition', 'Predicted Values']].rename({'Count of employees across each condition': 'Actual Value'}), index=False)
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        st.pyplot()
+        try:
+            plt.figure(figsize=(10, 6))
+            sns.barplot(data=df_plot, x='Category', y='Value', palette='mako')
+            plt.xlabel('')
+            plt.ylabel('')
+            plt.legend()
+            if predicted < actual:
+                st.write("Actual labor count: ", int(np.ceil(actual[0])))
+                st.write("Predicted labor count: ", int(np.floor(predicted[0])))
+            else:
+                st.write("Actual labor count: ", int(np.floor(actual[0])))
+                st.write("Predicted labor count: ", int(np.ceil(predicted[0])))
+            st.set_option('deprecation.showPyplotGlobalUse', False)
+            st.pyplot()
+        except:
+            st.write("There are no employees for this condition")
     
 
 

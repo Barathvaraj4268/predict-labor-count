@@ -34,7 +34,7 @@ def run():
         
     day_name = laborForm.selectbox('Enter the day', df['Day_Name'].unique())
 
-    dept = laborForm.selectbox('Enter department', df['Department'].unique())
+    dept = laborForm.selectbox('Enter job title', df['Department'].unique())
     
     age_group = laborForm.selectbox('Enter the combination of gender and age group', df['Age_Group'].unique())
     

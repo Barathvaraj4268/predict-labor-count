@@ -112,11 +112,11 @@ def run():
             predicted_labor_count = int(predicted[0])
 
             if predicted_labor_count < actual_labor_count:
-                st.write("<h1>Actual labor count: {}</h1>".format(int(np.ceil(actual_labor_count))), unsafe_allow_html=True)
-                st.write("<h1>Predicted labor count: {}</h1>".format(int(np.floor(predicted_labor_count))), unsafe_allow_html=True)
+                st.write("<h3>Actual labor count: {}</h3>".format(int(np.ceil(actual_labor_count))), unsafe_allow_html=True)
+                st.write("<h3>Predicted labor count: {}</h3>".format(int(np.floor(predicted_labor_count))), unsafe_allow_html=True)
             else:
-                st.write("<h1>Actual labor count: {}</h1>".format(int(np.floor(actual_labor_count))), unsafe_allow_html=True)
-                st.write("<h1>Predicted labor count: {}</h1>".format(int(np.ceil(predicted_labor_count))), unsafe_allow_html=True)
+                st.write("<h3>Actual labor count: {}</h3>".format(int(np.floor(actual_labor_count))), unsafe_allow_html=True)
+                st.write("<h3>Predicted labor count: {}</h3>".format(int(np.ceil(predicted_labor_count))), unsafe_allow_html=True)
 
             st.set_option('deprecation.showPyplotGlobalUse', False)
             st.pyplot()

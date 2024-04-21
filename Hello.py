@@ -108,12 +108,16 @@ def run():
             plt.xlabel('')
             plt.ylabel('')
             plt.legend()
-            if predicted < actual:
-                st.write("Actual labor count: ", int(np.ceil(actual[0])))
-                st.write("Predicted labor count: ", int(np.floor(predicted[0])))
+            actual_labor_count = int(actual[0])
+            predicted_labor_count = int(predicted[0])
+
+            if predicted_labor_count < actual_labor_count:
+                st.write("<h1>Actual labor count: {}</h1>".format(int(np.ceil(actual_labor_count))), unsafe_allow_html=True)
+                st.write("<h1>Predicted labor count: {}</h1>".format(int(np.floor(predicted_labor_count))), unsafe_allow_html=True)
             else:
-                st.write("Actual labor count: ", int(np.floor(actual[0])))
-                st.write("Predicted labor count: ", int(np.ceil(predicted[0])))
+                st.write("<h1>Actual labor count: {}</h1>".format(int(np.floor(actual_labor_count))), unsafe_allow_html=True)
+                st.write("<h1>Predicted labor count: {}</h1>".format(int(np.ceil(predicted_labor_count))), unsafe_allow_html=True)
+
             st.set_option('deprecation.showPyplotGlobalUse', False)
             st.pyplot()
         except:
